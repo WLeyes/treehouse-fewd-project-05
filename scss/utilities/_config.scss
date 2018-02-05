@@ -1,0 +1,25 @@
+/////////////////////////////////////////////////////////////////////////////////////////
+// scss/utilities/_config.scss :  Partial for : variables for fonts, breakpoints, colors
+/////////////////////////////////////////////////////////////////////////////////////////
+
+// Font Stacks
+$font-url--google        : 'https://fonts.googleapis.com/css?family=Lato:100,300,400,700,900';
+$font-family--sans-serif : Helvetica, Arial, sans-serif;
+$font-family--primary    : 'Lato', 'Helvetica Neue', $font-family--sans-serif;
+$font-family--secondary  : 'Helvetica Neue', $font-family--sans-serif;
+
+// Font weights
+$font-weight--thin       : 100;
+$font-weight--light      : 300;
+$font-weight--medium     : 400;
+$font-weight--bold       : 700;
+$font-weight--ultra-bold : 900;
+
+// Descriptive Base Colors
+$white        : #fff;
+$black        : #0b0b0b;
+$grey         : #797e83;
+
+// Color usage
+
+// Text
