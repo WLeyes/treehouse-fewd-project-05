@@ -1,0 +1,8 @@
+
+.theme__colors.btn{
+  @include bg-colors($btn-colors);
+}
+
+.theme__colors.grid{
+  @include bg-colors($grid-colors, $selector--element);
+}

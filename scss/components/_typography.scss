@@ -1,0 +1,9 @@
+///////////////////////////////////////////////////////////////
+// scss/components/_typography.scss : Font styles
+///////////////////////////////////////////////////////////////
+
+body {
+  font-size: $base__font-size;
+  line-height: ($base__line-height/$base__font-size);
+  font-family: $font-family--primary;
+}

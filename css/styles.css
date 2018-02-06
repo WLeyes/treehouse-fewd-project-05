@@ -1,3 +1,13 @@
+.srt {
+  border: 0;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px; }
+
 /*! normalize.css v7.0.0 | MIT License | github.com/necolas/normalize.css */
 /* Document
    ========================================================================== */
@@ -388,5 +398,39 @@ template {
  */
 [hidden] {
   display: none; }
+
+* {
+  box-sizing: border-box; }
+
+body {
+  font-size: 16px;
+  line-height: 1.5;
+  font-family: "Lato", "Helvetica Neue", Helvetica, Arial, sans-serif; }
+
+.theme__colors.btn--default {
+  background-color: #55def8; }
+.theme__colors.btn--success {
+  background-color: #63cc82; }
+.theme__colors.btn--error {
+  background-color: #e4757a; }
+.theme__colors.btn--warning {
+  background-color: #fd7856; }
+.theme__colors.btn--info {
+  background-color: #927bc1; }
+
+.theme__colors.grid__col--3 {
+  background-color: #deb2ee; }
+.theme__colors.grid__col--4 {
+  background-color: #7ee6fd; }
+.theme__colors.grid__col--5 {
+  background-color: #88d9a0; }
+.theme__colors.grid__col--6 {
+  background-color: #3fabca; }
+.theme__colors.grid__col--7 {
+  background-color: #ec9fa3; }
+.theme__colors.grid__col--8 {
+  background-color: #fd9f85; }
+.theme__colors.grid__col--12 {
+  background-color: #80e8d1; }
 
 /*# sourceMappingURL=styles.css.map */

@@ -2,4 +2,6 @@
 // scss/components/_index.scss :  MODULE IMPORT
 ///////////////////////////////////////////////////////////////
 
-@import 'grid' // for grid system
+@import 'grid',        // For grid system
+        'typography',  // Typography
+        'themes'       // Color Theme

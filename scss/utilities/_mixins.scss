@@ -1,3 +1,14 @@
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // scss/utilities/_mixins.scss :  Mixins for: Media Queries, Flexbox settings, Element and Modifier BEM Selectors
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+// Color Theme
+// $map from config colormap
+// $selector inserts BEM modifier '--' by default, this allow more meaningful naming in the grid color map
+@mixin bg-colors($map, $selector: $selector--modifier) {
+  @each $theme, $color in $map {
+    &#{$selector}#{$theme} {
+      background-color: $color;
+    }
+  }
+}
