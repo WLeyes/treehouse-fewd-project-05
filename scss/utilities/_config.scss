@@ -1,5 +1,5 @@
 /////////////////////////////////////////////////////////////////////////////////////////
-// scss/utilities/_config.scss :  Partial for : variables for fonts, breakpoints, colors
+// scss/utilities/_config.scss :  Global variables for fonts, breakpoints, colors
 /////////////////////////////////////////////////////////////////////////////////////////
 
 // Font Stacks
@@ -16,8 +16,9 @@ $font-weight--bold       : 700;
 $font-weight--ultra-bold : 900;
 
 // Text
-$base__font-size    : 16px;
-$base__line-height  : 24px;
+$base__font-size   : 16px;
+$base__line-height : 24px;
+$letter-space      : 1px;
 
 // Descriptive Base Colors
 $white           : #fff;
@@ -90,3 +91,28 @@ $grid-colors: (
 // Selectors : used to manipulate bg-colors()
 $selector--element  : '__';
 $selector--modifier : '--';
+
+////////////////////////////////////////////////////////////////////////////////
+// LAYOUT
+////////////////////////////////////////////////////////////////////////////////
+
+$max-width: 1400px;
+$gutter:    10px;
+
+//Breakpoints
+$breakpoints: (
+ 'xs' : 575px,
+'sm'  : 576px,
+'med' : 768px,
+'lg'  : 992px,
+);
+
+// Border radius
+$br--default     : .4em;
+$br--round       : 50%;
+
+// Transitions
+$trns-duration   : .3s;
+
+// Path to Assets
+$path--rel       : "../img";

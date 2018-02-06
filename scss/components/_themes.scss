@@ -1,8 +1,13 @@
+///////////////////////////////////////////////////////////////
+// scss/components/_theme.scss : Site Color themes
+///////////////////////////////////////////////////////////////
 
+// Button background colors
 .theme__colors.btn{
   @include bg-colors($btn-colors);
 }
 
+// Grid Background colors
 .theme__colors.grid{
   @include bg-colors($grid-colors, $selector--element);
 }

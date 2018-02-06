@@ -402,11 +402,6 @@ template {
 * {
   box-sizing: border-box; }
 
-body {
-  font-size: 16px;
-  line-height: 1.5;
-  font-family: "Lato", "Helvetica Neue", Helvetica, Arial, sans-serif; }
-
 .theme__colors.btn--default {
   background-color: #55def8; }
 .theme__colors.btn--success {
