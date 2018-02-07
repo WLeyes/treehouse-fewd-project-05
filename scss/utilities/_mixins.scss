@@ -22,6 +22,14 @@
   }
 }
 
+//text
+@mixin text($font-size: $base__font-size, $line-height: $base__line-height, $font-weight: null, $color: null) {
+  font-size: $font-size;
+  line-height: $line-height;
+  font-weight: $font-weight;
+  color: $color;
+}
+
 // Color Theme
 // $map from config colormap
 // $selector inserts BEM modifier '--' by default, this allow more meaningful naming in the grid color map

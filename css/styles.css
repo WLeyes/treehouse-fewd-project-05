@@ -1,3 +1,4 @@
+@import url("https://fonts.googleapis.com/css?family=Lato:100,300,400,700,900");
 .srt {
   border: 0;
   clip: rect(0 0 0 0);
@@ -401,6 +402,42 @@ template {
 
 * {
   box-sizing: border-box; }
+
+.grid__col--1 {
+  width: 6.5%; }
+
+.grid__col--2 {
+  width: 15%; }
+
+.grid__col--3 {
+  width: 23.5%; }
+
+.grid__col--4 {
+  width: 32%; }
+
+.grid__col--5 {
+  width: 40.5%; }
+
+.grid__col--6 {
+  width: 49%; }
+
+.grid__col--7 {
+  width: 57.5%; }
+
+.grid__col--8 {
+  width: 66%; }
+
+.grid__col--9 {
+  width: 74.5%; }
+
+.grid__col--10 {
+  width: 83%; }
+
+.grid__col--11 {
+  width: 91.5%; }
+
+.grid__col--12 {
+  width: 100%; }
 
 .theme__colors.btn--default {
   background-color: #55def8; }
