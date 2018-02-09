@@ -2,10 +2,12 @@
 // scss/utilities/_functions.scss :  Helper functions
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
+
 // Import if Google Font URL is defined
 @if variable-exists(font-url--google) {
   @import url($font-url--google);
 }
+
 
 // Convert px to em
 @function em($target, $context: $base__font-size) {
@@ -18,6 +20,7 @@
   $grid-context: ($grid-colomn-width * $grid-colomn-count) + ($grid-gutter-width * ($grid-colomn-count - 1));
   @return $grid-context;
 }
+
 
 // Color Palette Modifier
 @function palette($palette, $shade: 'base') {

@@ -3,6 +3,31 @@
 ///////////////////////////////////////////////////////////////////////////////////////////////
 
 
+///////////////////////////////////////////////////////////////////////////////////////////
+// headlines
+///////////////////////////////////////////////////////////////////////////////////////////
+%headline-primary {
+  font-family: $font-family--primary;
+  font-size: em(42px);
+  line-height: em(46px / 42px);
+  font-weight: $font-weight--ultra-bold;
+  margin-bottom: em(70px, 42px);
+  margin-top: 0;
+}
+
+
+%headline-secondary {
+  font-family: $font-family--secondary;
+  font-size: em(24px);
+  font-weight: $font-weight--thin;
+  letter-spacing: $letter-space;
+}
+
+///////////////////////////////////////////////////////////////////////////////////////////
+// Helpers
+///////////////////////////////////////////////////////////////////////////////////////////
+
+
 // Clearfix
 %clearfix {
   &:after {
@@ -11,6 +36,22 @@
     clear: both;
   }
 }
+
+
+//For pseudo-elements
+%pseudos {
+  display: block;
+  content: '';
+  position: absolute;
+}
+
+
+// Center elements - todo: move to different file?
+%centered {
+  margin-left: auto;
+  margin-right: auto;
+}
+
 
 // Screen reader Text
 .srt {
@@ -22,11 +63,4 @@
   padding: 0;
   position: absolute;
   width: 1px;
-}
-
-//For pseudo-elements
-%pseudos {
-  display: block;
-  content: '';
-  position: absolute;
 }
