@@ -7,10 +7,8 @@
   @extend %centered;
   width: 90%; // todo: change to config variable
   // Make nested grid 100%
-  [class*='grid__col--'] > & { // Target .grid containers inside columns
+  [class*='grid__row'] > & { // Target .grid containers inside columns
     width: 100%;
-    background-color: tomato; // todo: fix
-
   }
   // Set max-width grid container - todo:  figure out how to get this in the mixin
   @include media-query('lg') {

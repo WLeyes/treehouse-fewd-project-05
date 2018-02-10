@@ -78,6 +78,8 @@
   font-weight: $font-weight--medium;
   transition: opacity $trns-duration;
   display: block;
+  margin-top: em(12px);
+  margin-bottom:  em(12px);
   &:hover {
     opacity: .75;
   }
