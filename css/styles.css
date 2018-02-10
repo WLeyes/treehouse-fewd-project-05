@@ -32,6 +32,22 @@
   position: absolute;
   width: 1px; }
 
+.theme__colors.btn--default, .theme__colors.btn--success, .theme__colors.btn--error, .theme__colors.btn--warning, .theme__colors.btn--info, .theme__colors.grid__col--3, .theme__colors.grid__col--4, .theme__colors.grid__col--5, .theme__colors.grid__col--6, .theme__colors.grid__col--7, .theme__colors.grid__col--8, .theme__colors.grid__col--12 {
+  padding: 15px;
+  border: 0;
+  border-radius: 0.4em;
+  color: #fff;
+  width: 100%;
+  text-transform: uppercase;
+  font-size: em(14px);
+  font-weight: 400;
+  transition: opacity 0.3s;
+  display: block; }
+  .theme__colors.btn--default:hover, .theme__colors.btn--success:hover, .theme__colors.btn--error:hover, .theme__colors.btn--warning:hover, .theme__colors.btn--info:hover, .theme__colors.grid__col--3:hover, .theme__colors.grid__col--4:hover, .theme__colors.grid__col--5:hover, .theme__colors.grid__col--6:hover, .theme__colors.grid__col--7:hover, .theme__colors.grid__col--8:hover, .theme__colors.grid__col--12:hover {
+    opacity: .75; }
+  .theme__colors.btn--default:active, .theme__colors.btn--success:active, .theme__colors.btn--error:active, .theme__colors.btn--warning:active, .theme__colors.btn--info:active, .theme__colors.grid__col--3:active, .theme__colors.grid__col--4:active, .theme__colors.grid__col--5:active, .theme__colors.grid__col--6:active, .theme__colors.grid__col--7:active, .theme__colors.grid__col--8:active, .theme__colors.grid__col--12:active {
+    opacity: initial; }
+
 @media (min-width: 769px) {
   .grid__col--1 {
     width: 6.5%; }
@@ -518,5 +534,23 @@ template {
   background-color: #fd9f85; }
 .theme__colors.grid__col--12 {
   background-color: #80e8d1; }
+
+.form__label {
+  display: block;
+  margin-bottom: 0.625em; }
+.form__input {
+  width: 100%;
+  font-size: 1.125em;
+  line-height: 1.3333333333em;
+  font-weight: 300;
+  color: #626262;
+  padding: 0.8333333333em;
+  margin-bottom: 1.1111111111em;
+  border-bottom: 6px solid #a2a2a2;
+  border-radius: 0.4em;
+  background: #e2e2e2;
+  outline: none; }
+  .form__input:focus {
+    border-bottom-color: #58e1c1; }
 
 /*# sourceMappingURL=styles.css.map */

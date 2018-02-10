@@ -4,12 +4,12 @@
 
 
 .headline {
-  &--primary {
+  @include m(primary) {
     @extend %headline-primary;
     margin-bottom: em(70px, 42px);
     color: $color-primary;
   }
-  &--secondary {
+  @include m(secondary) {
     @extend %headline-secondary;
     margin-bottom: em(22px, 24px);
     color: palette(silver-chalace, x-dark);

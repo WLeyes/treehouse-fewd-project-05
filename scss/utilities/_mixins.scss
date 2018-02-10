@@ -3,7 +3,9 @@
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 
+//////////////////////////////////////////////////////////////////////////////
 // BEM Selectors
+//////////////////////////////////////////////////////////////////////////////
 @mixin e($element) {
   &__#{$element} {
     @content;
@@ -18,13 +20,21 @@
 }
 
 
-// Same as the 2 above, but as a single function
-@mixin bem($element, $selector: $selector--modifier) {
-  &#{$selector}#{$element} {
-    @content;
+// Same as the 2 above, but as a single function - just trying to push my knowledge
+@mixin bem($element, $selector: $selector--element) {
+  @if $selector == '__' or $selector == '--'{
+    &#{$selector}#{$element} {
+      @content;
+    }
+  }
+  @else {
+    @error '\"#{$element}\" is not a valid selector element! options are: \"#{$selector--element}\" (default) or \"#{$selector--modifier}\"'
   }
 }
 
+//////////////////////////////////////////////////////////////////////////////
+// Images
+//////////////////////////////////////////////////////////////////////////////
 
 // Image replace
 @mixin image-replace($image, $width, $height, $display: block) {
@@ -35,6 +45,64 @@
   display: $display;
 }
 
+
+//text
+@mixin text($font-size: $base__font-size, $line-height: $base__line-height, $font-weight: null, $color: null) {
+  font-size:   $font-size;
+  line-height: $line-height;
+  font-weight: $font-weight;
+  color: $color;
+}
+
+// Adjacent sibling margins : http://blog.teamtreehouse.com/sass-tip-double-ampersand-selector
+@mixin doubly($margin: 1em) {
+  & + & {
+    margin-left: $margin;
+    @content;
+  }
+}
+
+//////////////////////////////////////////////////////////////////////////////
+// Theme Colors
+//////////////////////////////////////////////////////////////////////////////
+
+// Color Theme
+// $map from config colormap
+// $selector inserts BEM modifier '--' by default, this allow more meaningful naming in the grid color map
+
+@mixin bg-colors($map, $selector: $selector--modifier) {
+  @each $theme, $color in $map {
+    &#{$selector}#{$theme} {
+      background-color: $color;
+      @extend %btn;
+    }
+  }
+}
+
+
+//////////////////////////////////////////////////////////////////////////////
+// Media Queries
+//////////////////////////////////////////////////////////////////////////////
+
+// Media query - breakpoints
+@mixin media-query($breakpoint) {
+  $value: map-get($breakpoints, $breakpoint);
+  $sm:    map-get($breakpoints, 'sm');
+  @if $value < $sm {
+    @media (max-width: $value) {
+      @content;
+    }
+  }
+  @else {
+    @media (min-width: $value) {
+      @content;
+    }
+  }
+}
+
+//////////////////////////////////////////////////////////////////////////////
+// Helpers
+//////////////////////////////////////////////////////////////////////////////
 
 // Pseudo elements
 @mixin pseudo-element(
@@ -56,55 +124,9 @@ $element-height: null
 }
 
 
-//text
-@mixin text($font-size: $base__font-size, $line-height: $base__line-height, $font-weight: null, $color: null) {
-  font-size: $font-size;
-  line-height: $line-height;
-  font-weight: $font-weight;
-  color: $color;
-}
-
-
-// Color Theme
-// $map from config colormap
-// $selector inserts BEM modifier '--' by default, this allow more meaningful naming in the grid color map
-@mixin bg-colors($map, $selector: $selector--modifier) {
-  @each $theme, $color in $map {
-    &#{$selector}#{$theme} {
-      background-color: $color;
-    }
-  }
-}
-
-
-// Adjacent sibling margins : http://blog.teamtreehouse.com/sass-tip-double-ampersand-selector
-@mixin doubly($margin: 1em) {
-  & + & {
-    margin-left: $margin;
-    @content;
-  }
-}
-
-
-// Media query - breakpoints
-@mixin media-query($breakpoint) {
-  $value: map-get($breakpoints, $breakpoint);
-  $sm:    map-get($breakpoints, 'sm');
-  @if $value < $sm {
-    @media (max-width: $value) {
-      @content;
-    }
-  }
-  @else {
-    @media (min-width: $value) {
-      @content;
-    }
-  }
-}
-
-
-// Grid columns for grid container
-
+//////////////////////////////////////////////////////////////////////////////
+// Grid System
+//////////////////////////////////////////////////////////////////////////////
 
 // Calculate grid columns
 @include media-query('med'){
