@@ -20,7 +20,7 @@
 }
 
 
-// Same as the 2 above, but as a single function - just trying to push my knowledge
+// Same as the 2 above, but as a single function  { just trying to push my knowledge }
 @mixin bem($element, $selector: $selector--element) {
   @if $selector == '__' or $selector == '--'{
     &#{$selector}#{$element} {
@@ -28,9 +28,104 @@
     }
   }
   @else {
-    @error '\"#{$element}\" is not a valid selector element! options are: \"#{$selector--element}\" (default) or \"#{$selector--modifier}\"'
+    @error '\"#{$element}\" is not a valid selector element! options are: \"#{$selector--element}\" (default) or \"#{$selector--modifier}\"';
   }
 }
+
+
+//////////////////////////////////////////////////////////////////////////////
+// Helpers
+//////////////////////////////////////////////////////////////////////////////
+
+// Pseudo elements
+@mixin pseudo-element(
+$element,
+$element-width:  null,
+$element-height: null
+) {
+  @if $element == 'before' or $element == 'after' {
+    &:#{$element} {
+      @extend %pseudos;
+      width: $element-width;
+      height: $element-height;
+      @content;
+    }
+  }
+  @else {
+    @error '\"#{$element}\" is not a valid pseudo-element!';
+  }
+}
+
+
+//////////////////////////////////////////////////////////////////////////////
+// Media Queries
+//////////////////////////////////////////////////////////////////////////////
+
+// Media query - breakpoints
+@mixin media-query($breakpoint) {
+  $value: map-get($breakpoints, $breakpoint);
+  $sm:    map-get($breakpoints, small);
+  $keys:   map-keys($breakpoints);//test
+  @if map-has-key($breakpoints, $breakpoint) { // bool value true/false
+    @if $value < $sm {
+      @media (max-width: $value) {
+        @content;
+      }
+    }
+    @else {
+      @media (min-width: $value) {
+        @content;
+      }
+    }
+  }
+  @else {
+    @error '\"#{$breakpoint}\" is not a valid breakpoint value! options: #{$keys}';
+  }
+}
+
+
+//////////////////////////////////////////////////////////////////////////////
+// Flexbox
+//////////////////////////////////////////////////////////////////////////////
+@mixin flex($dir) {
+  display: flex;
+  flex-direction: $dir;
+  justify-content: center;
+  @content;
+}
+
+//////////////////////////////////////////////////////////////////////////////
+// Grid System
+//////////////////////////////////////////////////////////////////////////////
+
+// Calculate grid columns
+@include media-query(medium){
+  @for $i from 1 through $grid-column-count {
+    $context: grid-context($grid-column-width, $grid-column-count, $grid-gutter-width) !global;
+    $target: ($grid-column-width * $i) + ($grid-gutter-width * ($i - 1));
+    .grid__col--#{$i} {
+      width: percentage($target/$context);
+    }
+  }
+}
+
+
+// Column style
+[class^='grid__col--'], [class^='btn--'] {
+  margin-top: em(12px);
+  margin-bottom:  em(12px);
+  @media (min-width: 1px) and (max-width: 768px) {
+  }
+  @media (min-width: 769px) {
+    // @include doubly(percentage($grid-gutter-width / $context));
+    min-width: 1px;
+    padding-left: 10px;
+    padding-right: 10px;
+    &:last-of-type {
+    }
+  }
+}
+
 
 //////////////////////////////////////////////////////////////////////////////
 // Images
@@ -54,6 +149,7 @@
   color: $color;
 }
 
+
 // Adjacent sibling margins : http://blog.teamtreehouse.com/sass-tip-double-ampersand-selector
 @mixin doubly($margin: 1em) {
   & + & {
@@ -75,83 +171,6 @@
     &#{$selector}#{$theme} {
       background-color: $color;
       @extend %btn;
-    }
-  }
-}
-
-
-//////////////////////////////////////////////////////////////////////////////
-// Media Queries
-//////////////////////////////////////////////////////////////////////////////
-
-// Media query - breakpoints
-@mixin media-query($breakpoint) {
-  $value: map-get($breakpoints, $breakpoint);
-  $sm:    map-get($breakpoints, 'sm');
-  @if $value < $sm {
-    @media (max-width: $value) {
-      @content;
-    }
-  }
-  @else {
-    @media (min-width: $value) {
-      @content;
-    }
-  }
-}
-
-//////////////////////////////////////////////////////////////////////////////
-// Helpers
-//////////////////////////////////////////////////////////////////////////////
-
-// Pseudo elements
-@mixin pseudo-element(
-$element,
-$element-width:  null,
-$element-height: null
-) {
-  @if $element == 'before' or $element == 'after' {
-    &:#{$element} {
-      @extend %pseudos;
-      width: $element-width;
-      height: $element-height;
-      @content;
-    }
-  }
-  @else {
-    @error '\"#{$element}\" is not a valid pseudo-element!'
-  }
-}
-
-
-//////////////////////////////////////////////////////////////////////////////
-// Grid System
-//////////////////////////////////////////////////////////////////////////////
-
-// Calculate grid columns
-@include media-query('med'){
-  @for $i from 1 through $grid-column-count {
-    $context: grid-context($grid-column-width, $grid-column-count, $grid-gutter-width) !global;
-    $target: ($grid-column-width * $i) + ($grid-gutter-width * ($i - 1));
-    .grid__col--#{$i} {
-      width: percentage($target/$context);
-    }
-  }
-}
-
-
-// Column style
-[class^='grid__col--'], [class^='btn--'] {
-  margin-top: em(12px);
-  margin-bottom:  em(12px);
-  @media (min-width: 1px) and (max-width: 768px) {
-  }
-  @media (min-width: 769px) {
-    // @include doubly(percentage($grid-gutter-width / $context));
-    min-width: 1px;
-    padding-left: 10px;
-    padding-right: 10px;
-    &:last-of-type {
     }
   }
 }
