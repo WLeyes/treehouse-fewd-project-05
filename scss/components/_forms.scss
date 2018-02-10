@@ -19,7 +19,7 @@
       border-radius: $br--default;
       background: palette(silver-chalace, xx-light);
       &:focus {
-        border-bottom-color: $color-primary;
+        border-bottom-color: $color--primary;
       }
     }
 }

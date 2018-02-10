@@ -1,1 +1,17 @@
+//////////////////////////////////////////////////////////////////////
+// scss/components/_images.scss :  Image styling
+//////////////////////////////////////////////////////////////////////
 
+.img {
+  @include m(logo) {
+    @extend %img;
+  }
+  @include m(frame) {
+    border: 1px solid palette(silver-chalace, light);
+    padding: em(8px);
+    @extend %img;
+  }
+  @include m(avatar) {
+    @extend %img;
+  }
+}

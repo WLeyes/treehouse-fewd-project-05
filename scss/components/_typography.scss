@@ -7,7 +7,7 @@
   @include m(primary) {
     @extend %headline-primary;
     margin-bottom: em(70px, 42px);
-    color: $color-primary;
+    color: $color--primary;
   }
   @include m(secondary) {
     @extend %headline-secondary;
@@ -17,10 +17,34 @@
 }
 
 
-.container {}
+// Main Container
+
+.container {
+  color: palette(silver-chalace, dark);
+  font-family: $font-family--primary;
+  @include media-query(large) {
+    font-size: em(18px);
+  }
+}
 
 
-.link {}
+
+// Link Typography
+
+.link {
+  text-decoration: none;
+  color: $color--secondary;
+  font-weight: $font-weight--medium;
+}
 
 
-.blockquote {}
+
+// Blockquote Typography
+
+.blockquote {
+  font-size: em(24px);
+  font-style: italic;
+  border-left: 5px solid $color--primary;
+  border-radius: em(5px);
+  padding-left: em(12px);
+}
