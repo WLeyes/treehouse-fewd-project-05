@@ -5,41 +5,23 @@
 .container {
   @extend %clearfix;
   @extend %centered;
-  width: $max-width--container; // todo: change to config variable
+  width: $max-width--container;
   // Make nested grid 100%
-  [class*='grid__row'] > & { // Target .grid containers inside columns
+  [class*='grid__row'] {
+    @extend %centered;
     width: 100%;
   }
-  // Set max-width grid container - todo:  figure out how to get this in the mixin
-  @include media-query('large') {
-    max-width: $grid-container-max-width;
+}
+.grid__col {
+  @include media-query(medium) {
+    @include grid--columns;
   }
 }
 
-// Calculate grid columns
-@include media-query(medium){
-  @for $i from 1 through $grid-column-count {
-    $context: grid-context($grid-column-width, $grid-column-count, $grid-gutter-width) !global;
-    $target: ($grid-column-width * $i) + ($grid-gutter-width * ($i - 1));
-    .grid__col--#{$i} {
-      width: percentage($target/$context);
-    }
-  }
-}
 
 
 // Column style
 [class^='grid__col--'], [class^='btn--'] {
-  margin-top: em(12px);
-  margin-bottom:  em(12px);
-  @media (min-width: 1px) and (max-width: 768px) {
-  }
-  @media (min-width: 769px) {
-    // @include doubly(percentage($grid-gutter-width / $context));
-    min-width: 1px;
-    padding-left: 10px;
-    padding-right: 10px;
-    &:last-of-type {
-    }
-  }
+  margin-top: em(10px);
+  margin-bottom:  em(10px);
 }

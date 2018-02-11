@@ -96,23 +96,24 @@ $selector--modifier : '--';
 // LAYOUT
 ////////////////////////////////////////////////////////////////////////////////
 
-$max-width: 1400px;
-$max-width--container: 90%;
-$gutter:    10px;
 
 //Breakpoints
 $breakpoints: (
-  x-small  : 575px,
-  small    : 576px,
-  medium   : 769px,
-  large    : 1400px,
+  small    : 1px,
+  medium   : 768px,
+  large    : 1100px,
 );
+
+// Grid Container
+$gutter:    10px;
+$max-width: 1400px;
+$max-width--container: 90%;
 
 //Grid
 $grid-column-width          : 65px;
 $grid-gutter-width          : 20px;
 $grid-column-count          : 12;
-$grid-container-max-width   : 1200px;
+$max-width--grid-container   : 1400px;
 
 // Border radius
 $br--default     : .4em;

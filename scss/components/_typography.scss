@@ -11,8 +11,8 @@
   }
   @include m(secondary) {
     @extend %headline-secondary;
+    color: palette(silver-chalace,light);
     margin-bottom: em(22px, 24px);
-    color: palette(silver-chalace, x-dark);
   }
 }
 
@@ -21,7 +21,9 @@
 
 .container {
   color: palette(silver-chalace, dark);
+  font-size: em(18px);
   font-family: $font-family--primary;
+  font-weight: $font-weight--medium;
   @include media-query(large) {
     font-size: em(18px);
   }
@@ -34,7 +36,7 @@
 .link {
   text-decoration: none;
   color: $color--secondary;
-  font-weight: $font-weight--medium;
+  font-weight: $font-weight--bold;
 }
 
 
@@ -42,7 +44,7 @@
 // Blockquote Typography
 
 .blockquote {
-  font-size: em(24px);
+  font-size: em(21px);
   font-style: italic;
   border-left: 5px solid $color--primary;
   border-radius: em(5px);

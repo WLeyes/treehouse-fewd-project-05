@@ -16,6 +16,20 @@
 
 
 //////////////////////////////////////////////////////////////////////////////
+// Grid Columns
+//////////////////////////////////////////////////////////////////////////////
+@mixin grid--columns {
+  @for $i from 1 through $grid-column-count {
+    $context: grid-context($grid-column-width, $grid-column-count, $grid-gutter-width) !global;
+    $target: ($grid-column-width * $i) + ($grid-gutter-width * ($i - 1));
+    &--#{$i} {
+      width: percentage($target / $context);
+    }
+  }
+}
+
+
+//////////////////////////////////////////////////////////////////////////////
 // Images
 //////////////////////////////////////////////////////////////////////////////
 @mixin image-replace($image, $width, $height, $display: block) {
@@ -88,10 +102,10 @@
 // Media query - breakpoints
 @mixin media-query($breakpoint) {
   $value: map-get($breakpoints, $breakpoint);
-  $sm:    map-get($breakpoints, small);
+  $small:    map-get($breakpoints, medium) - 1;
   $keys:   map-keys($breakpoints);//test
   @if map-has-key($breakpoints, $breakpoint) { // bool value true/false
-    @if $value < $sm {
+    @if $value < $small {
       @media (max-width: $value) {
         @content;
       }

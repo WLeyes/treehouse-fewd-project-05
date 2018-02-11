@@ -1,3 +1,22 @@
 ///////////////////////////////////////////////////////////////
 // scss/components/_navigation.scss : Nav Menu styles
 ///////////////////////////////////////////////////////////////
+.nav {
+  @extend %nav-menu;
+  list-style: none;
+  text-decoration: none;
+  margin-top: em(24px);
+
+  @include e(item) {
+    @extend %nav-menu--item;
+    color: palette(silver-chalace, dark);
+    &:hover {
+      background-color: $color--primary;
+      color: $white;
+    }
+    &:focus {
+      background-color: $color--primary;
+      color: $white;
+    }
+  }
+}
