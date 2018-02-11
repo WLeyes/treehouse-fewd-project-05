@@ -1,22 +1,15 @@
-///////////////////////////////////////////////////////////////
+/*
+////////////////////////////////////////////////////////////////////////////////
 // scss/components/_navigation.scss : Nav Menu styles
-///////////////////////////////////////////////////////////////
-.nav {
-  @extend %nav-menu;
-  list-style: none;
-  text-decoration: none;
-  margin-top: em(24px);
+////////////////////////////////////////////////////////////////////////////////
+*/
 
-  @include e(item) {
-    @extend %nav-menu--item;
-    color: palette(silver-chalace, dark);
-    &:hover {
-      background-color: $color--primary;
-      color: $white;
-    }
-    &:focus {
-      background-color: $color--primary;
-      color: $white;
-    }
+
+.nav {
+  margin-top: em(20px);
+  margin-bottom: em(30px);
+  padding: 0;
+  @include bem(item) {
+    @extend %navigation-menu__item;
   }
 }

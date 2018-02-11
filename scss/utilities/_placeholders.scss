@@ -1,7 +1,8 @@
+/*
 ///////////////////////////////////////////////////////////////////////////////////////////////
 // scss/utilities/_placeholders.scss :   placeholders for: links, images, headlines, nav items
 ///////////////////////////////////////////////////////////////////////////////////////////////
-
+*/
 
 
 ///////////////////////////////////////////////////////////////////////////////////////////
@@ -58,7 +59,7 @@
   font-family: $font-family--primary;
   font-weight: $font-weight--ultra-bold;
   text-align: center;
-  line-height: em(46px / 42px);
+  line-height: em(46px, 42px);
   margin-bottom: em(70px, 42px);
   margin-top: 0;
 }
@@ -106,28 +107,50 @@
 //////////////////////////////////////////////////////////////////////////////
 // Navigation
 //////////////////////////////////////////////////////////////////////////////
-
-%nav-menu {
-  list-style: none;
-  display: block;
-  text-align: center;
-  padding: 0;
-  margin: 0;
-}
-
-%nav-menu--item {
-  display: block;
-  width: 100%;
-
-  text-decoration: none;
-  // color: palette(grey, dark);
-  display: block;
-  height: auto;
-  max-width: 100%;
-  // @include btn-pad(10px, 10px);
-  border-radius: em(5px);
-  margin-bottom: em(8px);
-
+%navigation-menu {
+  // Base navigation styles
+  @include bem(item){
+    list-style-type: none;
+    @extend %navigation-menu--horizontal;
+    a {
+      @extend %navigation-menu--link;
+      color: palette(silver-chalace, dark);
+      &:hover {
+        @extend %navigation-menu--on;
+      }
+      &:focus {
+        background-color: $color--primary;
+        color: $white;
+      }
+    }
+  }
+  @include bem(horizontal, $selector--modifier) {
+    // Navigation styles when tablet-size+
+    @include media-query(medium) {
+      display: inline-block;
+      margin: 0 em(12px);
+    }
+  }
+  @include bem(link, $selector--modifier) {
+      // Base navigation link styles
+      display: block;
+      font-size: em(18px);
+      font-weight: $font-weight--light;
+      text-align: center;
+      text-decoration: none;
+      padding-top: em(14px, 18px);
+      padding-bottom: em(14px, 18px);
+      border-bottom: 1px solid transparent;
+      border-bottom-color: palette(silver-chalace, light);
+      @include media-query(medium) { // move to base
+        padding: em(8px, 18px);
+        border-bottom: 1px solid transparent;
+    }
+  }
+  @include bem(on, $selector--modifier) {
+    color: palette(black);
+    border-color: $color--primary;
+  }
 }
 
 

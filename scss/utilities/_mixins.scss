@@ -102,7 +102,7 @@
 // Media query - breakpoints
 @mixin media-query($breakpoint) {
   $value: map-get($breakpoints, $breakpoint);
-  $small:    map-get($breakpoints, medium) - 1;
+  $small:    map-get($breakpoints, medium);
   $keys:   map-keys($breakpoints);//test
   @if map-has-key($breakpoints, $breakpoint) { // bool value true/false
     @if $value < $small {
