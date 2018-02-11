@@ -15,3 +15,31 @@
     max-width: $grid-container-max-width;
   }
 }
+
+// Calculate grid columns
+@include media-query(medium){
+  @for $i from 1 through $grid-column-count {
+    $context: grid-context($grid-column-width, $grid-column-count, $grid-gutter-width) !global;
+    $target: ($grid-column-width * $i) + ($grid-gutter-width * ($i - 1));
+    .grid__col--#{$i} {
+      width: percentage($target/$context);
+    }
+  }
+}
+
+
+// Column style
+[class^='grid__col--'], [class^='btn--'] {
+  margin-top: em(12px);
+  margin-bottom:  em(12px);
+  @media (min-width: 1px) and (max-width: 768px) {
+  }
+  @media (min-width: 769px) {
+    // @include doubly(percentage($grid-gutter-width / $context));
+    min-width: 1px;
+    padding-left: 10px;
+    padding-right: 10px;
+    &:last-of-type {
+    }
+  }
+}

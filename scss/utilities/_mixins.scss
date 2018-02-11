@@ -3,6 +3,54 @@
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 
+
+//////////////////////////////////////////////////////////////////////////////
+// Flexbox
+//////////////////////////////////////////////////////////////////////////////
+@mixin flex($dir) {
+  display: flex;
+  flex-direction: $dir;
+  justify-content: center;
+  @content;
+}
+
+
+//////////////////////////////////////////////////////////////////////////////
+// Images
+//////////////////////////////////////////////////////////////////////////////
+@mixin image-replace($image, $width, $height, $display: block) {
+  background-image: url('#{$path--relative}/#{$image}');
+  background-repeat: no-repeat;
+  width: $width;
+  height: $height;
+  display: $display;
+}
+
+//////////////////////////////////////////////////////////////////////////////
+// Typography
+//////////////////////////////////////////////////////////////////////////////
+@mixin text($font-size: $base__font-size, $line-height: $base__line-height, $font-weight: null, $color: null) {
+  font-size:   $font-size;
+  line-height: $line-height;
+  font-weight: $font-weight;
+  color: $color;
+}
+
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Theme Colors
+// $selector inserts BEM modifier '--' by default, this allow more meaningful naming in the grid color map
+//////////////////////////////////////////////////////////////////////////////////////////////////////////
+@mixin bg-colors($map, $selector: $selector--modifier) {
+  @each $theme, $color in $map {
+    &#{$selector}#{$theme} {
+      background-color: $color;
+      @extend %btn;
+    }
+  }
+}
+
+
 //////////////////////////////////////////////////////////////////////////////
 // BEM Selectors
 //////////////////////////////////////////////////////////////////////////////
@@ -29,30 +77,6 @@
   }
   @else {
     @error '\"#{$element}\" is not a valid selector element! options are: \"#{$selector--element}\" (default) or \"#{$selector--modifier}\"';
-  }
-}
-
-
-//////////////////////////////////////////////////////////////////////////////
-// Helpers
-//////////////////////////////////////////////////////////////////////////////
-
-// Pseudo elements
-@mixin pseudo-element(
-$element,
-$element-width:  null,
-$element-height: null
-) {
-  @if $element == 'before' or $element == 'after' {
-    &:#{$element} {
-      @extend %pseudos;
-      width: $element-width;
-      height: $element-height;
-      @content;
-    }
-  }
-  @else {
-    @error '\"#{$element}\" is not a valid pseudo-element!';
   }
 }
 
@@ -85,68 +109,26 @@ $element-height: null
 
 
 //////////////////////////////////////////////////////////////////////////////
-// Flexbox
-//////////////////////////////////////////////////////////////////////////////
-@mixin flex($dir) {
-  display: flex;
-  flex-direction: $dir;
-  justify-content: center;
-  @content;
-}
-
-//////////////////////////////////////////////////////////////////////////////
-// Grid System
+// Helpers
 //////////////////////////////////////////////////////////////////////////////
 
-// Calculate grid columns
-@include media-query(medium){
-  @for $i from 1 through $grid-column-count {
-    $context: grid-context($grid-column-width, $grid-column-count, $grid-gutter-width) !global;
-    $target: ($grid-column-width * $i) + ($grid-gutter-width * ($i - 1));
-    .grid__col--#{$i} {
-      width: percentage($target/$context);
+// Pseudo elements
+@mixin pseudo-element(
+$element,
+$element-width:  null,
+$element-height: null
+) {
+  @if $element == 'before' or $element == 'after' {
+    &:#{$element} {
+      @extend %pseudos;
+      width: $element-width;
+      height: $element-height;
+      @content;
     }
   }
-}
-
-
-// Column style
-[class^='grid__col--'], [class^='btn--'] {
-  margin-top: em(12px);
-  margin-bottom:  em(12px);
-  @media (min-width: 1px) and (max-width: 768px) {
+  @else {
+    @error '\"#{$element}\" is not a valid pseudo-element!';
   }
-  @media (min-width: 769px) {
-    // @include doubly(percentage($grid-gutter-width / $context));
-    min-width: 1px;
-    padding-left: 10px;
-    padding-right: 10px;
-    &:last-of-type {
-    }
-  }
-}
-
-
-//////////////////////////////////////////////////////////////////////////////
-// Images
-//////////////////////////////////////////////////////////////////////////////
-
-// Image replace
-@mixin image-replace($image, $width, $height, $display: block) {
-  background-image: url('#{$path--relative}/#{$image}');
-  background-repeat: no-repeat;
-  width: $width;
-  height: $height;
-  display: $display;
-}
-
-
-//text
-@mixin text($font-size: $base__font-size, $line-height: $base__line-height, $font-weight: null, $color: null) {
-  font-size:   $font-size;
-  line-height: $line-height;
-  font-weight: $font-weight;
-  color: $color;
 }
 
 
@@ -155,22 +137,5 @@ $element-height: null
   & + & {
     margin-left: $margin;
     @content;
-  }
-}
-
-//////////////////////////////////////////////////////////////////////////////
-// Theme Colors
-//////////////////////////////////////////////////////////////////////////////
-
-// Color Theme
-// $map from config colormap
-// $selector inserts BEM modifier '--' by default, this allow more meaningful naming in the grid color map
-
-@mixin bg-colors($map, $selector: $selector--modifier) {
-  @each $theme, $color in $map {
-    &#{$selector}#{$theme} {
-      background-color: $color;
-      @extend %btn;
-    }
   }
 }
