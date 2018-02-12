@@ -11,16 +11,21 @@
   width: $max-width--container;
   // Make nested grid 100%
   [class*='grid__row'] {
-    @extend %centered;
-    width: 100%;
-  }
-}
-.grid__col {
-  @include media-query(medium) {
-    @include grid--columns;
+    // @extend %centered;
+    // width: 100%;
   }
 }
 
+.grid{
+  @include e(col){
+    @include media-query(medium) {
+      @include grid--columns;
+    }
+  }
+  @include e(row) {
+    @extend %centered;
+  }
+}
 
 // Column style
 [class^='grid__col--'], [class^='btn--'] {

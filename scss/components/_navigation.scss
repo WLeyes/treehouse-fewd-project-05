@@ -8,7 +8,8 @@
 .nav {
   margin-top: em(20px);
   margin-bottom: em(30px);
-  padding: 0;
+  text-align: center;
+  @extend .centered;
   @include bem(item) {
     @extend %navigation-menu__item;
   }

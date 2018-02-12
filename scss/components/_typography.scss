@@ -5,6 +5,30 @@
 */
 
 
+// Main Container
+.container {
+  color: palette(silver-chalace, dark);
+  font-size: em(18px);
+  font-family: $font-family--primary;
+  font-weight: $font-weight--medium;
+  @include media-query(large) {
+    font-size: em(18px);
+  }
+}
+
+
+// Grid Container
+.grid {
+  @include e(row) {
+    // Paragraphs inside .grid_row
+    p {
+      text-align: center;
+    }
+  }
+}
+
+
+// Main Headlines
 .headline {
   @include m(primary) {
     @extend %headline-primary;
@@ -19,22 +43,7 @@
 }
 
 
-// Main Container
-
-.container {
-  color: palette(silver-chalace, dark);
-  font-size: em(18px);
-  font-family: $font-family--primary;
-  font-weight: $font-weight--medium;
-  @include media-query(large) {
-    font-size: em(18px);
-  }
-}
-
-
-
-// Link Typography
-
+// Links
 .link {
   text-decoration: none;
   color: $color--secondary;
@@ -42,9 +51,7 @@
 }
 
 
-
-// Blockquote Typography
-
+// Blockquote
 .blockquote {
   font-size: em(21px);
   font-style: italic;

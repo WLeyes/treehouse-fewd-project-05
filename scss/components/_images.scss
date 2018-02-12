@@ -7,14 +7,14 @@
 
 .img {
   @include m(logo) {
-    @extend %img;
+    @extend %image;
   }
   @include m(frame) {
     border: 1px solid palette(silver-chalace, light);
     padding: em(8px);
-    @extend %img;
+    @extend %image;
   }
   @include m(avatar) {
-    @extend %img;
+    @extend %image;
   }
 }
