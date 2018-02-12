@@ -6,10 +6,10 @@
 
 
 .nav {
-  margin-top: em(20px);
-  margin-bottom: em(30px);
+  margin-top: em(40px);
+  margin-bottom: em(80px);
   text-align: center;
-  @extend .centered;
+  @extend %centered;
   @include bem(item) {
     @extend %navigation-menu__item;
   }

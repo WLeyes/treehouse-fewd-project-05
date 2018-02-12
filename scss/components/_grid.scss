@@ -9,11 +9,6 @@
   @extend %clearfix;
   @extend %centered;
   width: $max-width--container;
-  // Make nested grid 100%
-  [class*='grid__row'] {
-    // @extend %centered;
-    // width: 100%;
-  }
 }
 
 .grid{
@@ -24,11 +19,16 @@
   }
   @include e(row) {
     @extend %centered;
+    margin-top: em(50px);
   }
 }
 
 // Column style
-[class^='grid__col--'], [class^='btn--'] {
-  margin-top: em(10px);
-  margin-bottom:  em(10px);
+[class^='btn--'] {
+  margin-top: em(20px);
+  margin-bottom:  em(20px);
+}
+[class^='grid__col--'] {
+  margin-top: em(5px);
+  margin-bottom:  em(5px);
 }

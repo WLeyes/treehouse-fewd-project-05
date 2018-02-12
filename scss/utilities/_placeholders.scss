@@ -55,21 +55,27 @@
 // headlines
 ///////////////////////////////////////////////////////////////////////////////////////////
 %headline-primary {
-  font-size: em(42px);
+  font-size: em(30px);
   font-family: $font-family--primary;
   font-weight: $font-weight--ultra-bold;
-  text-align: center;
-  line-height: em(46px, 42px);
-  margin-bottom: em(70px, 42px);
+  padding-left: em(10px);
+  line-height: em(30px, 30px);
   margin-top: 0;
+  margin-bottom: em(40px, 30px);
+  @include media-query(medium) {
+    text-align: center;
+    padding-left: 0;
+  }
 }
 
 
 %headline-secondary {
-  font-size: em(24px);
+  font-size: em(16px);
   font-family: $font-family--secondary;
   font-weight: $font-weight--thin;
+  line-height: em(24px, 16px);
   letter-spacing: $letter-space;
+  margin-top: em(80px);
 }
 
 
@@ -78,10 +84,12 @@
 //////////////////////////////////////////////////////////////////////////////
 %buttons {
   padding: 15px;
-  border-radius: $br--default;
+  border-radius: $border-radius--default;
   color: $white;
   width: 100%;
   text-transform: uppercase;
+  outline: 0;
+  border: 0;
   font-weight: $font-weight--medium;
   transition: opacity $trns-duration;
   display: block;
@@ -102,6 +110,7 @@
   display: block;
   max-width: 100%;
   @extend %centered;
+  margin-top: em(40px);
 }
 
 //////////////////////////////////////////////////////////////////////////////
@@ -119,7 +128,6 @@
         @extend %navigation-menu--on;
       }
       &:focus {
-        background-color: $color--primary;
         color: $white;
       }
     }
@@ -135,21 +143,16 @@
       // Base navigation link styles
       display: block;
       font-size: em(18px);
-      font-weight: $font-weight--light;
+      font-weight: $font-weight--medium;
       text-align: center;
       text-decoration: none;
       padding-top: em(14px, 18px);
       padding-bottom: em(14px, 18px);
-      border-bottom: 1px solid transparent;
-      border-bottom-color: palette(silver-chalace, light);
-      @include media-query(medium) { // move to base
-        padding: em(8px, 18px);
-        border-bottom: 1px solid transparent;
-    }
+      border-radius: $border-radius--default;
   }
   @include bem(on, $selector--modifier) {
-    color: palette(black);
-    border-color: $color--primary;
+    color: $white;
+    background-color: $color--primary;
   }
 }
 

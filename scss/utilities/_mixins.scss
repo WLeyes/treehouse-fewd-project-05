@@ -7,9 +7,9 @@
 //////////////////////////////////////////////////////////////////////////////
 // Flexbox
 //////////////////////////////////////////////////////////////////////////////
-@mixin flex($dir) {
+@mixin flex($direction) {
   display: flex;
-  flex-direction: $dir;
+  flex-direction: $direction;
   justify-content: center;
   @content;
 }
@@ -55,11 +55,11 @@
 // Theme Colors
 // $selector inserts BEM modifier '--' by default, this allow more meaningful naming in the grid color map
 //////////////////////////////////////////////////////////////////////////////////////////////////////////
-@mixin bg-colors($map,$placeholder, $selector: $selector--modifier) {
+@mixin bg-colors($map,$placeholder, $selector: $selector--modifier) { // By setting $selector vars in config I can manupulate BEM easier
   @each $theme, $color in $map {
     &#{$selector}#{$theme} {
       background-color: $color;
-      @extend #{$placeholder};
+      @extend #{$placeholder}; // allows flexabilty on which placeholder to use making this more reusable
     }
   }
 }
@@ -101,9 +101,9 @@
 
 // Media query - breakpoints
 @mixin media-query($breakpoint) {
-  $value: map-get($breakpoints, $breakpoint);
-  $small:    map-get($breakpoints, medium);
-  $keys:   map-keys($breakpoints);//test
+  $value:  map-get($breakpoints, $breakpoint);
+  $small:  map-get($breakpoints, medium);
+  $keys:   map-keys($breakpoints); // Returns a list of keys
   @if map-has-key($breakpoints, $breakpoint) { // bool value true/false
     @if $value < $small {
       @media (max-width: $value) {

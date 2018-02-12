@@ -22,7 +22,13 @@
   @include e(row) {
     // Paragraphs inside .grid_row
     p {
-      text-align: center;
+      margin-bottom: em(20px);
+      line-height: em(27px, 18px);
+    }
+    @include media-query(medium){
+      p {
+        text-align: center;
+      }
     }
   }
 }
@@ -32,7 +38,6 @@
 .headline {
   @include m(primary) {
     @extend %headline-primary;
-    margin-bottom: em(70px, 42px);
     color: $color--primary;
   }
   @include m(secondary) {
@@ -52,10 +57,10 @@
 
 
 // Blockquote
-.blockquote {
+.blockquote{
   font-size: em(21px);
   font-style: italic;
   border-left: 5px solid $color--primary;
   border-radius: em(5px);
-  padding-left: em(12px);
+  padding-left: em(10px);
 }
