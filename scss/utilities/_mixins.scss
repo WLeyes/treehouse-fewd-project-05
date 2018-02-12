@@ -19,6 +19,7 @@
 // Grid Columns
 //////////////////////////////////////////////////////////////////////////////
 @mixin grid--columns {
+  // todo: review breakpoints i am not liking the values for config.
   @for $i from 1 through $grid-column-count {
     $context: grid-context($grid-column-width, $grid-column-count, $grid-gutter-width) !global;
     $target: ($grid-column-width * $i) + ($grid-gutter-width * ($i - 1));
