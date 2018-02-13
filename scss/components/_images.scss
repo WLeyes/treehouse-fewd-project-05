@@ -6,6 +6,7 @@
 
 [class^='img--']{
   @extend %centered;
+  margin-bottom: em(27px);
 }
 .img {
   @include m(logo) {

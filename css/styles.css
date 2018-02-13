@@ -1074,6 +1074,9 @@ ul {
 // scss/components/_images.scss :  Image styling
 ////////////////////////////////////////////////////////////////////////////////
 */
+[class^='img--'] {
+  margin-bottom: 1.6875em; }
+
 .img--frame {
   border: 1px solid #b6b6b6;
   padding: 0.5em; }
