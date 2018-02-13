@@ -35,6 +35,9 @@
 .headline {
   @include m(primary) {
     @extend %headline-primary;
+    padding-left: em(10px);
+    margin-top: 0;
+    margin-bottom: em(40px, 30px);
     color: $color--primary;
     @include media-query(medium) {
       text-align: center;
@@ -44,7 +47,7 @@
   @include m(secondary) {
     @extend %headline-secondary;
     color: palette(silver-chalace,light);
-    margin-top: auto;
+    margin-top: em(80px, 24px);
     margin-bottom: em(22px, 24px);
   }
 }
@@ -59,7 +62,7 @@
 
 .card {
   @include media-query(medium) {
-    width: 90%;
+    margin-top: 0;
   }
 }
 // Blockquote
@@ -73,6 +76,8 @@
   padding-left: em(10px);
   @include media-query(medium) {
     margin-left: em(40px);
+    padding-left: em(20px);
     padding-right: em(40px);
+    letter-spacing: $letter-space;
   }
 }

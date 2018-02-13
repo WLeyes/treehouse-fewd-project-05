@@ -1,9 +1,7 @@
 ////////////////////////////////////////////////////////////////////////////////
 // scss/utilities/_index.scss :  HELPER FILES AND CONFIG IMPORT
 ////////////////////////////////////////////////////////////////////////////////
-
-
-@import 'config',       // Partial for: variables
+@import 'config',
         'functions',
-        'placeholders', // Placeholders for: links, images, headlines, nav items
-        'mixins'        // Mixins for: Media Queries, Flexbox settings, Element and Modifier BEM Selectors
+        'placeholders',
+        'mixins'

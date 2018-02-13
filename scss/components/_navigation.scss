@@ -6,19 +6,21 @@
 
 
 .nav {
-  margin-top: em(40px);
-  margin-bottom: em(80px);
+  margin-bottom: em(40px);
   text-align: center;
   width: 100%;
   @include flex(column);
   @include bem(item) {
     list-style-type: none;
     a {
+      margin: 0;
       @extend %navigation-menu--links;
       color: palette(silver-chalace, dark);
       @include media-query(medium){
         width: 100%;
-        min-width: em(100px);
+      }
+      li {
+        margin: 0;
       }
       &:hover {
         @extend %navigation-menu--on;

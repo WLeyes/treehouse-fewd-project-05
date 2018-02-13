@@ -1,12 +1,9 @@
 ////////////////////////////////////////////////////////////////////////////////
 // scss/components/_index.scss :  MODULE IMPORT
 ////////////////////////////////////////////////////////////////////////////////
-
-
-
-@import 'grid',        // For grid system
-        'navigation',  // Navigation
-        'typography',  // Typography
-        'buttons',     // Buttons
+@import 'grid',        
+        'navigation',
+        'typography',
+        'buttons',
         'forms',
         'images'

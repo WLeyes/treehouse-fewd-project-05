@@ -6,7 +6,7 @@
 
 
 // Grid Background colors
-.theme__colors.grid{
+.theme__colors.grid {
   @include bg-colors($grid-colors,'%buttons', $selector--element);
 }
 
@@ -23,20 +23,20 @@
   @extend %clearfix;
   @extend %centered;
   width: $max-width--container;
-  max-width: $max-width;
+
   @include flex(column);
   @include media-query(medium){
+    max-width: $max-width;
     justify-content: space-between;
   }
 }
 
 
-.grid{
+.grid {
   @include e(col){
       @for $i from 1 through $grid-column-count {
         @include m(#{$i}) {
           @include media-query(medium) {
-            @include grid--columns;
             @include flex(row){
               justify-content: space-around;
               flex-grow: $i;
@@ -47,13 +47,13 @@
     }
   }
   @include e(row) {
-    margin-top: auto;
     width: 100%;
-    align-self: center;
     @extend %centered;
     @include media-query(medium) {
       @include flex(row);
-      // margin-bottom: 50px;
+      &:first-of-type{
+        align-items: center;
+      }
     }
     &:last-of-type{
       margin-bottom: em(40px);
