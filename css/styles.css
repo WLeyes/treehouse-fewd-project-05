@@ -738,8 +738,11 @@ ul {
   background-color: #927bc1; }
 
 [class^='btn--'] {
+  align-self: stretch;
   margin-right: 2.5em;
   width: 100%; }
+  [class^='btn--']:last-of-type {
+    margin-right: 0; }
 
 /*
 ////////////////////////////////////////////////////////////////////////////////
