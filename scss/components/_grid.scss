@@ -5,30 +5,58 @@
 */
 
 
+// Grid Background colors
+.theme__colors.grid{
+  @include bg-colors($grid-colors,'%buttons', $selector--element);
+}
+
+
+// Grid style
+[class^='grid__col--'] {
+  margin-left: $gutter;
+  margin-right: $gutter;
+  @include flex(column);
+}
+
+
 .container {
   @extend %clearfix;
   @extend %centered;
   width: $max-width--container;
+  max-width: $max-width;
+  @include flex(column);
+  @include media-query(medium){
+    justify-content: space-between;
+  }
 }
+
 
 .grid{
   @include e(col){
-    @include media-query(medium) {
-      @include grid--columns;
+      @for $i from 1 through $grid-column-count {
+        @include m(#{$i}) {
+          @include media-query(medium) {
+            @include grid--columns;
+            @include flex(row){
+              justify-content: space-around;
+              flex-grow: $i;
+              max-width: (($i / $grid-column-count) * 100%);
+            }
+        }
+      }
     }
   }
   @include e(row) {
+    margin-top: auto;
+    width: 100%;
+    align-self: center;
     @extend %centered;
-    margin-top: em(50px);
+    @include media-query(medium) {
+      @include flex(row);
+      // margin-bottom: 50px;
+    }
+    &:last-of-type{
+      margin-bottom: em(40px);
+    }
   }
-}
-
-// Column style
-[class^='btn--'] {
-  margin-top: em(20px);
-  margin-bottom:  em(20px);
-}
-[class^='grid__col--'] {
-  margin-top: em(5px);
-  margin-bottom:  em(5px);
 }

@@ -62,10 +62,6 @@
   line-height: em(30px, 30px);
   margin-top: 0;
   margin-bottom: em(40px, 30px);
-  @include media-query(medium) {
-    text-align: center;
-    padding-left: 0;
-  }
 }
 
 
@@ -75,7 +71,6 @@
   font-weight: $font-weight--thin;
   line-height: em(24px, 16px);
   letter-spacing: $letter-space;
-  margin-top: em(80px);
 }
 
 
@@ -86,7 +81,6 @@
   padding: 15px;
   border-radius: $border-radius--default;
   color: $white;
-  width: 100%;
   text-transform: uppercase;
   outline: 0;
   border: 0;
@@ -94,6 +88,8 @@
   transition: opacity $trns-duration;
   display: block;
   text-align: center;
+  margin-top: em(10px);
+  margin-bottom: em(10px);
   &:hover {
     opacity: .75;
   }
@@ -102,59 +98,34 @@
   }
 }
 
-
 //////////////////////////////////////////////////////////////////////////////
 // Images
 //////////////////////////////////////////////////////////////////////////////
 %image {
   display: block;
   max-width: 100%;
-  @extend %centered;
-  margin-top: em(40px);
 }
 
 //////////////////////////////////////////////////////////////////////////////
 // Navigation
 //////////////////////////////////////////////////////////////////////////////
-%navigation-menu {
-  // Base navigation styles
-  @include bem(item){
-    list-style-type: none;
-    @extend %navigation-menu--horizontal;
-    a {
-      @extend %navigation-menu--link;
-      color: palette(silver-chalace, dark);
-      &:hover {
-        @extend %navigation-menu--on;
-      }
-      &:focus {
-        color: $white;
-      }
-    }
-  }
-  @include bem(horizontal, $selector--modifier) {
-    // Navigation styles when tablet-size+
-    @include media-query(medium) {
-      display: inline-block;
-      margin: 0 em(12px);
-    }
-  }
-  @include bem(link, $selector--modifier) {
-      // Base navigation link styles
-      display: block;
-      font-size: em(18px);
-      font-weight: $font-weight--medium;
-      text-align: center;
-      text-decoration: none;
-      padding-top: em(14px, 18px);
-      padding-bottom: em(14px, 18px);
-      border-radius: $border-radius--default;
-  }
-  @include bem(on, $selector--modifier) {
-    color: $white;
-    background-color: $color--primary;
-  }
+
+%navigation-menu--links {
+  display: block;
+  font-size: em(18px);
+  font-weight: $font-weight--medium;
+  text-align: center;
+  text-decoration: none;
+  padding-top: em(14px, 18px);
+  padding-bottom: em(14px, 18px);
+  border-radius: $border-radius--default;
 }
+
+%navigation-menu--on {
+  color: $white;
+  background-color: $color--primary;
+}
+
 
 
 //////////////////////////////////////////////////////////////////////////////

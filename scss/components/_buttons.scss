@@ -1,0 +1,25 @@
+/*
+////////////////////////////////////////////////////////////////////////////////
+// scss/components/_buttons.scss :  Button styles
+////////////////////////////////////////////////////////////////////////////////
+*/
+
+
+// Button background colors
+.theme__colors.btn{
+  @include bg-colors($btn-colors,'%buttons');
+}
+
+
+// Column style
+[class^='btn--'] {
+  margin: em(20px) em(10px);
+    $btn-count: 5;
+    @for $i from 1 through $btn-count { // todo: figure out how to convert to mixin.(how can I modify both grid and bg color mixin to be more generic)
+      $context: grid-context($grid-column-width, $btn-count, $grid-gutter-width) !global;
+      $target: ($grid-column-width * $i) + ($grid-gutter-width * ($i - 1));
+        @each $theme, $color in $btn-colors {
+          width: percentage($target / $context);
+        }
+    }
+}

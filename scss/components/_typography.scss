@@ -20,15 +20,12 @@
 // Grid Container
 .grid {
   @include e(row) {
-    // Paragraphs inside .grid_row
+    margin-top: em(20px);
     p {
       margin-bottom: em(20px);
+      padding-left: 20px;
+      padding-right: 20px;
       line-height: em(27px, 18px);
-    }
-    @include media-query(medium){
-      p {
-        text-align: center;
-      }
     }
   }
 }
@@ -39,10 +36,15 @@
   @include m(primary) {
     @extend %headline-primary;
     color: $color--primary;
+    @include media-query(medium) {
+      text-align: center;
+      padding-left: 0;
+    }
   }
   @include m(secondary) {
     @extend %headline-secondary;
     color: palette(silver-chalace,light);
+    margin-top: auto;
     margin-bottom: em(22px, 24px);
   }
 }
@@ -55,12 +57,22 @@
   font-weight: $font-weight--bold;
 }
 
-
+.card {
+  @include media-query(medium) {
+    width: 90%;
+  }
+}
 // Blockquote
 .blockquote{
+  margin: 0;
+  margin-bottom: em(25px);
   font-size: em(21px);
   font-style: italic;
-  border-left: 5px solid $color--primary;
+  border-left: em(6px) solid $color--primary;
   border-radius: em(5px);
   padding-left: em(10px);
+  @include media-query(medium) {
+    margin-left: em(40px);
+    padding-right: em(40px);
+  }
 }
